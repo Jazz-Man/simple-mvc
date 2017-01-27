@@ -4,9 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4e852912c2077e5b71720b83b53d0201",
-    "content-hash": "eeee5042d975ea3eb4193972ca11cca2",
+    "hash": "6e29196f72a3fe607e0365b211b449b0",
+    "content-hash": "4cdd47430f2acdbd1208bbeca81ce361",
     "packages": [
+        {
+            "name": "ezimuel/php-secure-session",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ezimuel/PHP-Secure-Session.git",
+                "reference": "6635d71f54a0e967457dce31cb18ae2c616b8827"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ezimuel/PHP-Secure-Session/zipball/6635d71f54a0e967457dce31cb18ae2c616b8827",
+                "reference": "6635d71f54a0e967457dce31cb18ae2c616b8827",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-openssl": "*",
+                "paragonie/random_compat": "^2.0.2",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPSecureSession\\": "src/"
+                },
+                "files": [
+                    "bin/register_secure_session.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Encrypt and authenticate PHP session data using AES-256 and HMAC-SHA256",
+            "homepage": "https://github.com/ezimuel/PHP-Secure-Session",
+            "keywords": [
+                "Authentication",
+                "encrypt",
+                "session"
+            ],
+            "time": "2017-01-26 23:22:40"
+        },
         {
             "name": "gabordemooij/redbean",
             "version": "v4.3.3",
@@ -90,6 +135,54 @@
                 "routing"
             ],
             "time": "2016-10-20 17:36:47"
+        },
+        {
+            "name": "paragonie/random_compat",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/random.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2016-11-07 23:38:38"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -216,7 +309,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ezimuel/php-secure-session": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

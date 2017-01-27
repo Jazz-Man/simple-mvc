@@ -2,13 +2,15 @@
     "require": {
         "twig/twig": "~2.0",
         "nikic/fast-route": "v1.1.0",
-        "gabordemooij/redbean": "v4.3.3"
+        "gabordemooij/redbean": "v4.3.3",
+        "ezimuel/php-secure-session": "dev-master"
     },
 	"autoload": {
 		"psr-4": {
-			"Controller\\": "app/Controllers",
+			"Controllers\\": "app/Controllers",
 			"Core\\": "app/Core",
-			"Models\\": "app/Models"
+			"Models\\": "app/Models",
+			"Views\\": "app/Views"
 		}
 	}
 }

@@ -1,5 +1,190 @@
 [
     {
+        "name": "nikic/fast-route",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nikic/FastRoute.git",
+            "reference": "f3dcf5130e634b6123d40727d612ec6aa4f61fb3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nikic/FastRoute/zipball/f3dcf5130e634b6123d40727d612ec6aa4f61fb3",
+            "reference": "f3dcf5130e634b6123d40727d612ec6aa4f61fb3",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2016-10-20 17:36:47",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "FastRoute\\": "src/"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Nikita Popov",
+                "email": "nikic@php.net"
+            }
+        ],
+        "description": "Fast request router for PHP",
+        "keywords": [
+            "router",
+            "routing"
+        ]
+    },
+    {
+        "name": "gabordemooij/redbean",
+        "version": "v4.3.3",
+        "version_normalized": "4.3.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/gabordemooij/redbean.git",
+            "reference": "1c7ec69850e9f7966ff7feb87b01d8f43a9753d3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/1c7ec69850e9f7966ff7feb87b01d8f43a9753d3",
+            "reference": "1c7ec69850e9f7966ff7feb87b01d8f43a9753d3",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.4"
+        },
+        "time": "2016-10-03 21:25:17",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "RedBeanPHP\\": "RedBeanPHP"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "New BSD and GPLv2"
+        ],
+        "authors": [
+            {
+                "name": "Gabor de Mooij",
+                "email": "gabor@redbeanphp.com",
+                "homepage": "http://redbeanphp.com"
+            }
+        ],
+        "description": "RedBeanPHP ORM",
+        "homepage": "http://redbeanphp.com/",
+        "keywords": [
+            "orm"
+        ]
+    },
+    {
+        "name": "paragonie/random_compat",
+        "version": "v2.0.4",
+        "version_normalized": "2.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paragonie/random_compat.git",
+            "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
+            "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*|5.*"
+        },
+        "suggest": {
+            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+        },
+        "time": "2016-11-07 23:38:38",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/random.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Paragon Initiative Enterprises",
+                "email": "security@paragonie.com",
+                "homepage": "https://paragonie.com"
+            }
+        ],
+        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+        "keywords": [
+            "csprng",
+            "pseudorandom",
+            "random"
+        ]
+    },
+    {
+        "name": "ezimuel/php-secure-session",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ezimuel/PHP-Secure-Session.git",
+            "reference": "6635d71f54a0e967457dce31cb18ae2c616b8827"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ezimuel/PHP-Secure-Session/zipball/6635d71f54a0e967457dce31cb18ae2c616b8827",
+            "reference": "6635d71f54a0e967457dce31cb18ae2c616b8827",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "ext-openssl": "*",
+            "paragonie/random_compat": "^2.0.2",
+            "php": "^5.6 || ^7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2017-01-26 23:22:40",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "PHPSecureSession\\": "src/"
+            },
+            "files": [
+                "bin/register_secure_session.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "Encrypt and authenticate PHP session data using AES-256 and HMAC-SHA256",
+        "homepage": "https://github.com/ezimuel/PHP-Secure-Session",
+        "keywords": [
+            "Authentication",
+            "encrypt",
+            "session"
+        ]
+    },
+    {
         "name": "symfony/polyfill-mbstring",
         "version": "v1.3.0",
         "version_normalized": "1.3.0.0",
@@ -122,94 +307,6 @@
         "homepage": "http://twig.sensiolabs.org",
         "keywords": [
             "templating"
-        ]
-    },
-    {
-        "name": "nikic/fast-route",
-        "version": "v1.1.0",
-        "version_normalized": "1.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nikic/FastRoute.git",
-            "reference": "f3dcf5130e634b6123d40727d612ec6aa4f61fb3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nikic/FastRoute/zipball/f3dcf5130e634b6123d40727d612ec6aa4f61fb3",
-            "reference": "f3dcf5130e634b6123d40727d612ec6aa4f61fb3",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.0"
-        },
-        "time": "2016-10-20 17:36:47",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "FastRoute\\": "src/"
-            },
-            "files": [
-                "src/functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Nikita Popov",
-                "email": "nikic@php.net"
-            }
-        ],
-        "description": "Fast request router for PHP",
-        "keywords": [
-            "router",
-            "routing"
-        ]
-    },
-    {
-        "name": "gabordemooij/redbean",
-        "version": "v4.3.3",
-        "version_normalized": "4.3.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/gabordemooij/redbean.git",
-            "reference": "1c7ec69850e9f7966ff7feb87b01d8f43a9753d3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/1c7ec69850e9f7966ff7feb87b01d8f43a9753d3",
-            "reference": "1c7ec69850e9f7966ff7feb87b01d8f43a9753d3",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.4"
-        },
-        "time": "2016-10-03 21:25:17",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "RedBeanPHP\\": "RedBeanPHP"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "New BSD and GPLv2"
-        ],
-        "authors": [
-            {
-                "name": "Gabor de Mooij",
-                "email": "gabor@redbeanphp.com",
-                "homepage": "http://redbeanphp.com"
-            }
-        ],
-        "description": "RedBeanPHP ORM",
-        "homepage": "http://redbeanphp.com/",
-        "keywords": [
-            "orm"
         ]
     }
 ]

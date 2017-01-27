@@ -4,14 +4,20 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitbefb10eb5a83b0e511230ab7689bc8ae
+class ComposerStaticInit3ce4dd399e11cd16908724cd5512bad9
 {
     public static $files = array (
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        'c7a1089ba35f8274cf630debb7de059c' => __DIR__ . '/..' . '/ezimuel/php-secure-session/bin/register_secure_session.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Views\\' => 6,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
@@ -19,6 +25,10 @@ class ComposerStaticInitbefb10eb5a83b0e511230ab7689bc8ae
         'R' => 
         array (
             'RedBeanPHP\\' => 11,
+        ),
+        'P' => 
+        array (
+            'PHPSecureSession\\' => 17,
         ),
         'M' => 
         array (
@@ -31,11 +41,15 @@ class ComposerStaticInitbefb10eb5a83b0e511230ab7689bc8ae
         'C' => 
         array (
             'Core\\' => 5,
-            'Controller\\' => 11,
+            'Controllers\\' => 12,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Views\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Views',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -43,6 +57,10 @@ class ComposerStaticInitbefb10eb5a83b0e511230ab7689bc8ae
         'RedBeanPHP\\' => 
         array (
             0 => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP',
+        ),
+        'PHPSecureSession\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ezimuel/php-secure-session/src',
         ),
         'Models\\' => 
         array (
@@ -56,7 +74,7 @@ class ComposerStaticInitbefb10eb5a83b0e511230ab7689bc8ae
         array (
             0 => __DIR__ . '/../..' . '/app/Core',
         ),
-        'Controller\\' => 
+        'Controllers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/Controllers',
         ),
@@ -75,9 +93,9 @@ class ComposerStaticInitbefb10eb5a83b0e511230ab7689bc8ae
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitbefb10eb5a83b0e511230ab7689bc8ae::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitbefb10eb5a83b0e511230ab7689bc8ae::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitbefb10eb5a83b0e511230ab7689bc8ae::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3ce4dd399e11cd16908724cd5512bad9::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3ce4dd399e11cd16908724cd5512bad9::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3ce4dd399e11cd16908724cd5512bad9::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
