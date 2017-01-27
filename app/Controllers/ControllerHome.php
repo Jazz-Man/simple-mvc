@@ -1,20 +1,22 @@
 <?php
-    
-    namespace Controller;
+    namespace Controllers;
 
-    use Core\Controller;
+    use Models\Post;
 
     /**
      * Class ControllerHome
      *
-     * @package Controller
+     * @package Controllers
      */
     class ControllerHome extends Controller
     {
 
         public function action_index()
         {
-            $options = [];
-            $this->view->generate('index', $options);
+            $posts   = Post::getPosts();
+            $options = [
+                'posts' => $posts
+            ];
+            $this->view_frontend->render('index', $options);
         }
     }

@@ -6,6 +6,8 @@
 # User-specific stuff:
 .idea/*
 
+uploads/**
+
 ### Sass template
 .sass-cache/
 *.css.map
@@ -81,3 +83,4 @@ jspm_packages
 
 
 /cache/
+/composer.lock

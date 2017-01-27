@@ -6,10 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Views\\' => array($baseDir . '/app/Views'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'RedBeanPHP\\' => array($vendorDir . '/gabordemooij/redbean/RedBeanPHP'),
+    'PHPSecureSession\\' => array($vendorDir . '/ezimuel/php-secure-session/src'),
     'Models\\' => array($baseDir . '/app/Models'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
     'Core\\' => array($baseDir . '/app/Core'),
-    'Controller\\' => array($baseDir . '/app/Controllers'),
+    'Controllers\\' => array($baseDir . '/app/Controllers'),
 );

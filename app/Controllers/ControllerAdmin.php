@@ -1,20 +1,44 @@
 <?php
+    namespace Controllers;
 
-    namespace Controller;
-
-
-    use Core\Controller;
+    use Models\Login;
+    use Models\Post;
+    use Models\Route;
 
     /**
      * Class ControllerAdmin
      *
-     * @package Controller
+     * @package Controllers
      */
     class ControllerAdmin extends Controller
     {
         public function action_index()
         {
-            $options = [];
-            $this->view->generate('admin', $options);
+            if ( ! Login::checkLogin()) {
+                Route::pageRedirect('login');
+            } else {
+                $posts   = Post::getPosts();
+                $options = [
+                    'posts' => $posts
+                ];
+                if (isset($_GET['action'])) {
+                    switch ($_GET['action']) {
+                        case 'edit';
+                            $edit = new ControllerAdminEditPost();
+                            $edit->editPost($_GET['post']);
+                            break;
+                        case 'delete':
+                            $delete = new ControllerAdminEditPost();
+                            $delete->deletePost($_GET['post']);
+                            break;
+
+                    }
+
+                } else {
+                    $this->view_backend->render('index', $options);
+                }
+
+                //                $this->view_backend->render('index', $options);
+            }
         }
     }
