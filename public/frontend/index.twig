@@ -1,97 +1,104 @@
 {% extends "@layout/page.html.twig" %}
 {% block page_content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Blog Home One <small>Subheading</small></h1>
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="active">Blog Home One</li>
-                </ol>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-
-                {#{{ dump(posts) }}#}
-                {% if posts is iterable %}
-                    {% for post in posts %}
-                        {% set href = '/post/?' ~ {'id': post.id}|url_encode %}
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <h2><a href="{{ href|escape('html_attr') }}">{{ post.post_title|title }}</a></h2>
-                                <p class="lead">by <a href="#">{{ post.post_autor|title }}</a></p>
-                                <hr>
-                                <p>{{ post.post_excerpt|raw }}</p>
-                                <a class="btn btn-primary" href="{{ href|escape('html_attr') }}">Read More<i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                        <hr>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-md-4">
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Blog Home One
+					<small>Subheading</small>
+				</h1>
+				<ol class="breadcrumb">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li class="active">Blog Home One</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				{#{{ dump(posts) }}#}
+				{% if posts is iterable %}
+					{% for post in posts %}
+						{% set href = '/post/?' ~ {'id': post.id}|url_encode %}
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<h2>
+									<a href="{{ href|escape('html_attr') }}">{{ post.post_title|title }}</a>
+								</h2>
+								<p class="lead">by
+									<a href="#">{{ post.post_autor|title }}</a>
+								</p>
+								<hr>
+								<p>{{ post.post_excerpt|raw }}</p>
+								<a class="btn btn-primary" href="{{ href|escape('html_attr') }}">Read More
+									<i class="fa fa-angle-right"></i>
+								</a>
+							</div>
+						</div>
+						<hr>
+					{% endfor %}
+				{% endif %}
+			</div>
+			<div class="col-md-4">
+				<div class="well">
+					<h4>Blog Search</h4>
+					<div class="input-group">
+						<input type="text" class="form-control">
+						<span class="input-group-btn">
                             <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                         </span>
-                    </div>
-                </div>
-                <div class="well">
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="#">Category Name</a>
-                                </li>
-                                <li>
-                                    <a href="#">Category Name</a>
-                                </li>
-                                <li>
-                                    <a href="#">Category Name</a>
-                                </li>
-                                <li>
-                                    <a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="#">Category Name</a>
-                                </li>
-                                <li>
-                                    <a href="#">Category Name</a>
-                                </li>
-                                <li>
-                                    <a href="#">Category Name</a>
-                                </li>
-                                <li>
-                                    <a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="well">
-                    <h4>Side Widget Well</h4>
-                    {{ lorem.sm|raw }}
-                </div>
-            </div>
-        </div>
-        <hr>
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
-    </div>
+					</div>
+				</div>
+				<div class="well">
+					<h4>Blog Categories</h4>
+					<div class="row">
+						<div class="col-lg-6">
+							<ul class="list-unstyled">
+								<li>
+									<a href="#">Category Name</a>
+								</li>
+								<li>
+									<a href="#">Category Name</a>
+								</li>
+								<li>
+									<a href="#">Category Name</a>
+								</li>
+								<li>
+									<a href="#">Category Name</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-lg-6">
+							<ul class="list-unstyled">
+								<li>
+									<a href="#">Category Name</a>
+								</li>
+								<li>
+									<a href="#">Category Name</a>
+								</li>
+								<li>
+									<a href="#">Category Name</a>
+								</li>
+								<li>
+									<a href="#">Category Name</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h4>Side Widget Well</h4>
+					{{ lorem.sm|raw }}
+				</div>
+			</div>
+		</div>
+		<hr>
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; Your Website 2014</p>
+				</div>
+			</div>
+		</footer>
+	</div>
 {% endblock %}

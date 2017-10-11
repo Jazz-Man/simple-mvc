@@ -7,8 +7,8 @@ namespace Composer\Autoload;
 class ComposerStaticInit3ce4dd399e11cd16908724cd5512bad9
 {
     public static $files = array (
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'c7a1089ba35f8274cf630debb7de059c' => __DIR__ . '/..' . '/ezimuel/php-secure-session/bin/register_secure_session.php',
     );
@@ -17,6 +17,10 @@ class ComposerStaticInit3ce4dd399e11cd16908724cd5512bad9
         'V' => 
         array (
             'Views\\' => 6,
+        ),
+        'T' => 
+        array (
+            'Twig\\' => 5,
         ),
         'S' => 
         array (
@@ -49,6 +53,10 @@ class ComposerStaticInit3ce4dd399e11cd16908724cd5512bad9
         'Views\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/Views',
+        ),
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (

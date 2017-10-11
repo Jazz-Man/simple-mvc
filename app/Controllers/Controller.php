@@ -1,27 +1,24 @@
 <?php
-    namespace Controllers;
 
-    use Views\Backend;
-    use Views\Frontend;
+namespace Controllers;
 
-    /**
-     * Class Controller
-     *
-     * @package Core
-     */
-    class Controller
-    {
-        public $view_frontend;
-        public $view_backend;
+use Views\Backend;
+use Views\Frontend;
 
-        /**
-         * Controller constructor.
-         */
-        public function __construct()
-        {
-            $this->view_frontend = new Frontend();
-            $this->view_backend  = new Backend();
+/**
+ * Class Controller.
+ */
+abstract class Controller
+{
+	public $view_frontend;
+	public $view_backend;
 
-        }
-
-    }
+	/**
+	 * Controller constructor.
+	 */
+	public function __construct()
+	{
+		$this->view_frontend = new Frontend();
+		$this->view_backend = new Backend();
+	}
+}

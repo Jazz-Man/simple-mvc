@@ -16,11 +16,11 @@
  */
 class Twig_Environment
 {
-    const VERSION = '2.1.0';
-    const VERSION_ID = 20100;
+    const VERSION = '2.4.3';
+    const VERSION_ID = 20403;
     const MAJOR_VERSION = 2;
-    const MINOR_VERSION = 1;
-    const RELEASE_VERSION = 0;
+    const MINOR_VERSION = 4;
+    const RELEASE_VERSION = 3;
     const EXTRA_VERSION = '';
 
     private $charset;
@@ -359,7 +359,8 @@ class Twig_Environment
             }
 
             if (!class_exists($cls, false)) {
-                $content = $this->compileSource($this->getLoader()->getSourceContext($name));
+                $source = $this->getLoader()->getSourceContext($name);
+                $content = $this->compileSource($source);
                 $this->cache->write($key, $content);
                 $this->cache->load($key);
 
@@ -371,10 +372,10 @@ class Twig_Environment
                      */
                     eval('?>'.$content);
                 }
-            }
 
-            if (!class_exists($cls, false)) {
-                throw new Twig_Error_Runtime(sprintf('Failed to load Twig template "%s", index "%s": cache is corrupted.', $name, $index), -1, $source);
+                if (!class_exists($cls, false)) {
+                    throw new Twig_Error_Runtime(sprintf('Failed to load Twig template "%s", index "%s": cache is corrupted.', $name, $index), -1, $source);
+                }
             }
         }
 
@@ -398,7 +399,7 @@ class Twig_Environment
      */
     public function createTemplate($template)
     {
-        $name = sprintf('__string_template__%s', hash('sha256', uniqid(mt_rand(), true), false));
+        $name = sprintf('__string_template__%s', hash('sha256', $template, false));
 
         $loader = new Twig_Loader_Chain(array(
             new Twig_Loader_Array(array($name => $template)),
@@ -943,3 +944,5 @@ class Twig_Environment
         ));
     }
 }
+
+class_alias('Twig_Environment', 'Twig\Environment', false);

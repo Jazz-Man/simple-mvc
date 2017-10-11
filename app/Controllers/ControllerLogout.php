@@ -1,20 +1,18 @@
 <?php
-    namespace Controllers;
 
-    use Models\Login;
-    use Models\Route;
+namespace Controllers;
 
-    /**
-     * Class ControllerLogout
-     *
-     * @package Controllers
-     */
-    class ControllerLogout extends Controller
-    {
-        public function action_index()
-        {
-            Login::logout();
-            Route::redirectHome();
-        }
+use Models\Login;
+use Models\Route;
 
-    }
+/**
+ * Class ControllerLogout.
+ */
+class ControllerLogout extends Controller
+{
+	public function action_index()
+	{
+		Login::logout();
+		Route::redirectHome();
+	}
+}

@@ -1,18 +1,16 @@
 <?php
-    namespace Models;
 
-    /**
-     * Class Model
-     *
-     * @package Core
-     */
-    class Model
-    {
+namespace Models;
 
-        /**
-         * Model constructor.
-         */
-        public function __construct()
-        {
-        }
-    }
+/**
+ * Class Model.
+ */
+class Model
+{
+	/**
+	 * Model constructor.
+	 */
+	public function __construct()
+	{
+	}
+}

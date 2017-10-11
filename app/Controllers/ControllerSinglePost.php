@@ -1,21 +1,19 @@
 <?php
-    namespace Controllers;
 
-    use Models\Post;
+namespace Controllers;
 
-    /**
-     * Class ControllerHome
-     *
-     * @package Controllers
-     */
-    class ControllerSinglePost extends Controller
-    {
+use Models\Post;
 
-        public function action_index()
-        {
-            $post = [
-                'post_data' => Post::getPost($_GET['id']),
-            ];
-            $this->view_frontend->render('single-post', $post);
-        }
-    }
+/**
+ * Class ControllerHome.
+ */
+class ControllerSinglePost extends Controller
+{
+	public function action_index()
+	{
+		$post = [
+			'post_data' => Post::getPost($_GET['id']),
+		];
+		$this->view_frontend->render('single-post', $post);
+	}
+}

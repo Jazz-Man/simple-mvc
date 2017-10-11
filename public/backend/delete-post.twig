@@ -1,63 +1,63 @@
 {% extends "@layout/page.html.twig" %}
 
 {% block page_content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Admin Page</h1>
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="active">Admin Page</li>
-                </ol>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="/admin/add-post" class="list-group-item active">Додати публікацію</a>
-                </div>
-            </div>
-            <!-- Content Column -->
-            <div class="col-md-9">
-                <form method="post" action="/admin/{{ action|escape('html_attr') }}" class="form-horizontal">
-                    {% if post_data.id %}
-                        <input type="hidden" id="post_ID" name="post_ID" value="{{ post_data.id|escape('html_attr') }}">
-                    {% endif %}
-                    <fieldset>
-                        <legend>Видалити пост?</legend>
-                        <div class="col-md-offset-3 col-md-6">
-                            <div class="panel panel-default text-center">
-                                {% if post_data.post_thumbnail %}
-                                <div class="panel-heading">
-                                    <a href="#" class="thumbnail">
-                                        <img class="img-responsive img-hover"
-                                             src="{{ post_data.post_thumbnail|escape('html_attr') }}"
-                                             alt="">
-                                    </a>
-                                </div>
-                                {% endif %}
-                                <div class="panel-body">
-                                    <h4>{{ post_data.post_title }}</h4>
-                                    <p>{{ post_data.post_excerpt|raw }}</p>
-                                    <button type="reset" id="button1id" name="button1id" class="btn btn-success">Відмінити
-                                    </button>
-                                    <button type="submit" id="cancel" name="cancel" class="btn btn-danger">Видалити</button>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-        <hr>
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Admin Page</h1>
+				<ol class="breadcrumb">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li class="active">Admin Page</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="list-group">
+					<a href="/admin/add-post" class="list-group-item active">Додати публікацію</a>
+				</div>
+			</div>
+			<!-- Content Column -->
+			<div class="col-md-9">
+				<form method="post" action="/admin/{{ action|escape('html_attr') }}" class="form-horizontal">
+					{% if post_data.id %}
+						<input type="hidden" id="post_ID" name="post_ID" value="{{ post_data.id|escape('html_attr') }}">
+					{% endif %}
+					<fieldset>
+						<legend>Видалити пост?</legend>
+						<div class="col-md-offset-3 col-md-6">
+							<div class="panel panel-default text-center">
+								{% if post_data.post_thumbnail %}
+									<div class="panel-heading">
+										<a href="#" class="thumbnail">
+											<img class="img-responsive img-hover"
+													 src="{{ post_data.post_thumbnail|escape('html_attr') }}"
+													 alt="">
+										</a>
+									</div>
+								{% endif %}
+								<div class="panel-body">
+									<h4>{{ post_data.post_title }}</h4>
+									<p>{{ post_data.post_excerpt|raw }}</p>
+									<button type="reset" id="button1id" name="button1id" class="btn btn-success">Відмінити
+									</button>
+									<button type="submit" id="cancel" name="cancel" class="btn btn-danger">Видалити</button>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<hr>
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; Your Website 2014</p>
+				</div>
+			</div>
+		</footer>
+	</div>
 {% endblock %}

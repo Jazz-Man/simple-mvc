@@ -1,112 +1,111 @@
 {% extends "@layout/page.html.twig" %}
 
 {% block page_content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Admin Page</h1>
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="active">Admin Page</li>
-                </ol>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="/admin/add-post" class="list-group-item active">Додати публікацію</a>
-                </div>
-            </div>
-            <!-- Content Column -->
-            <div class="col-md-9">
-                <form class="form-horizontal" method="post" enctype="multipart/form-data"
-                      action="/admin/{{ action|escape('html_attr') }}">
-
-                    {% if post_data.id %}
-                        <input type="hidden" id="post_ID" name="post_ID" value="{{ post_data.id|escape('html_attr') }}">
-                    {% endif %}
-                    <fieldset>
-                        {% if add_post_validation %}
-                            {% for errore in add_post_validation %}
-                                {% if errore is iterable %}
-                                    {% for e in errore %}
-                                        <div class="col-md-6 col-md-offset-3">
-                                            <div class="alert alert-danger alert-dismissible" role="alert">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                {{ e|raw }}
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                {% else %}
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            {{ errore|raw }}
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                        <legend>Додати публікацію</legend>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="post_title">Назва поста</label>
-                            <div class="col-md-10">
-                                <input id="post_title"
-                                       name="post_title"
-                                       type="text"
-                                       placeholder="Post Title"
-                                       value="{% if post_data.post_title %}{{ post_data.post_title|escape('html_attr') }}{% endif %}"
-                                       class="form-control">
-                                <span class="help-block">Введіть назву</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="post_excerpt">Post Excerpt</label>
-                            <div class="col-md-10">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Admin Page</h1>
+				<ol class="breadcrumb">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li class="active">Admin Page</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="list-group">
+					<a href="/admin/add-post" class="list-group-item active">Додати публікацію</a>
+				</div>
+			</div>
+			<!-- Content Column -->
+			<div class="col-md-9">
+				<form class="form-horizontal" method="post" enctype="multipart/form-data"
+							action="/admin/{{ action|escape('html_attr') }}">
+					{% if post_data.id %}
+						<input type="hidden" id="post_ID" name="post_ID" value="{{ post_data.id|escape('html_attr') }}">
+					{% endif %}
+					<fieldset>
+						{% if add_post_validation %}
+							{% for errore in add_post_validation %}
+								{% if errore is iterable %}
+									{% for e in errore %}
+										<div class="col-md-6 col-md-offset-3">
+											<div class="alert alert-danger alert-dismissible" role="alert">
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+												{{ e|raw }}
+											</div>
+										</div>
+									{% endfor %}
+								{% else %}
+									<div class="col-md-6 col-md-offset-3">
+										<div class="alert alert-danger alert-dismissible" role="alert">
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											{{ errore|raw }}
+										</div>
+									</div>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						<legend>Додати публікацію</legend>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="post_title">Назва поста</label>
+							<div class="col-md-10">
+								<input id="post_title"
+											 name="post_title"
+											 type="text"
+											 placeholder="Post Title"
+											 value="{% if post_data.post_title %}{{ post_data.post_title|escape('html_attr') }}{% endif %}"
+											 class="form-control">
+								<span class="help-block">Введіть назву</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="post_excerpt">Post Excerpt</label>
+							<div class="col-md-10">
                                 <textarea class="form-control" id="post_excerpt" name="post_excerpt"
-                                          maxlength="60">{% if post_data.post_excerpt %}{{ post_data.post_excerpt }}{% endif %}</textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="post_content">Post Content</label>
-                            <div class="col-md-10">
+																					maxlength="60">{% if post_data.post_excerpt %}{{ post_data.post_excerpt }}{% endif %}</textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="post_content">Post Content</label>
+							<div class="col-md-10">
                                 <textarea class="form-control" id="post_content" name="post_content"
-                                          maxlength="500">{% if post_data.post_content %}{{ post_data.post_content }}{% endif %}</textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="post_thumbnail">Картинка</label>
-                            <div class="col-md-10">
-                                <input id="post_thumbnail" name="post_thumbnail" class="input-file" type="file">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="add_post"></label>
-                            <div class="col-md-10">
-                                <button id="{{ action|escape('html_attr') }}"
-                                        name="{{ action|escape('html_attr') }}"
-                                        class="btn btn-block btn-success">
-                                    Додати
-                                </button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-        <hr>
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
-    </div>
+																					maxlength="500">{% if post_data.post_content %}{{ post_data.post_content }}{% endif %}</textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="post_thumbnail">Картинка</label>
+							<div class="col-md-10">
+								<input id="post_thumbnail" name="post_thumbnail" class="input-file" type="file">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="add_post"></label>
+							<div class="col-md-10">
+								<button id="{{ action|escape('html_attr') }}"
+												name="{{ action|escape('html_attr') }}"
+												class="btn btn-block btn-success">
+									Додати
+								</button>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<hr>
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; Your Website 2014</p>
+				</div>
+			</div>
+		</footer>
+	</div>
 {% endblock %}

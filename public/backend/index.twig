@@ -1,67 +1,69 @@
 {% extends "@layout/page.html.twig" %}
 
 {% block page_content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Admin Page</h1>
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="active">Admin Page</li>
-                </ol>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="/admin/add-post" class="list-group-item">Додати публікацію</a>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <h2>Всі пости</h2>
-
-                {% if posts is iterable %}
-                    {% for post in posts %}
-                        {% set href = '/post/?' ~ {'id': post.id}|url_encode %}
-                        {% set edit_link = '/admin/?' ~ {'action': 'edit', 'post': post.id}|url_encode %}
-                        {% set delete_link = '/admin/?' ~ {'action': 'delete', 'post': post.id}|url_encode %}
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <a href="{{ href|escape('html_attr') }}">
-                                    <img class="img-responsive img-hover"
-                                         src="{{ post.post_thumbnail|escape('html_attr') }}"
-                                         alt="{{ post.post_title|escape('html_attr') }}">
-                                </a>
-                            </div>
-                            <div class="col-md-6">
-                                <h2><a href="{{ href|escape('html_attr') }}">{{ post.post_title|title }}</a></h2>
-                                <p class="lead">by <a href="#">Autor </a></p>
-                                <p>{{ post.post_excerpt|raw }}</p>
-                                <div class="btn-group" role="group">
-                                    <a class="btn btn-primary" href="{{ href|escape('html_attr') }}">Читати</a>
-                                    <a class="btn btn-success" href="{{ edit_link|escape('html_attr') }}">Редагувати</a>
-                                    <a class="btn btn-danger" href="{{ delete_link|escape('html_attr') }}">Видалити</a>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                    {% endfor %}
-                {% endif %}
-
-            </div>
-        </div>
-        <!-- /.row -->
-        <hr>
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Admin Page</h1>
+				<ol class="breadcrumb">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li class="active">Admin Page</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="list-group">
+					<a href="/admin/add-post" class="list-group-item">Додати публікацію</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<h2>Всі пости</h2>
+				{% if posts is iterable %}
+					{% for post in posts %}
+						{% set href = '/post/?' ~ {'id': post.id}|url_encode %}
+						{% set edit_link = '/admin/?' ~ {'action': 'edit', 'post': post.id}|url_encode %}
+						{% set delete_link = '/admin/?' ~ {'action': 'delete', 'post': post.id}|url_encode %}
+						<hr>
+						<div class="row">
+							<div class="col-md-5">
+								<a href="{{ href|escape('html_attr') }}">
+									<img class="img-responsive img-hover"
+											 src="{{ post.post_thumbnail|escape('html_attr') }}"
+											 alt="{{ post.post_title|escape('html_attr') }}">
+								</a>
+							</div>
+							<div class="col-md-6">
+								<h2>
+									<a href="{{ href|escape('html_attr') }}">{{ post.post_title|title }}</a>
+								</h2>
+								<p class="lead">by
+									<a href="#">Autor</a>
+								</p>
+								<p>{{ post.post_excerpt|raw }}</p>
+								<div class="btn-group" role="group">
+									<a class="btn btn-primary" href="{{ href|escape('html_attr') }}">Читати</a>
+									<a class="btn btn-success" href="{{ edit_link|escape('html_attr') }}">Редагувати</a>
+									<a class="btn btn-danger" href="{{ delete_link|escape('html_attr') }}">Видалити</a>
+								</div>
+							</div>
+						</div>
+						<hr>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+		<!-- /.row -->
+		<hr>
+		<!-- Footer -->
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; Your Website 2014</p>
+				</div>
+			</div>
+		</footer>
+	</div>
 {% endblock %}

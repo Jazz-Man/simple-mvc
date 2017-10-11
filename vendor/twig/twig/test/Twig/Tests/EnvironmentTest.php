@@ -249,6 +249,9 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
 
         $this->assertSame($ext, $twig->getExtension('Twig_Tests_EnvironmentTest_Extension'));
         $this->assertSame($ext, $twig->getExtension('\Twig_Tests_EnvironmentTest_Extension'));
+
+        $this->assertTrue($twig->hasExtension('Twig\Tests\EnvironmentTest\Extension'));
+        $this->assertSame($ext, $twig->getExtension('Twig\Tests\EnvironmentTest\Extension'));
     }
 
     public function testAddExtension()
@@ -292,8 +295,11 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
         $twig = new Twig_Environment($loader);
         $loader->expects($this->once())->method('getSourceContext')->will($this->returnValue(new Twig_Source('', '')));
         $twig->addExtension(new Twig_Tests_EnvironmentTest_ExtensionWithoutDeprecationInitRuntime());
-
         $twig->loadTemplate('');
+
+        // add a dummy assertion here to satisfy PHPUnit, the only thing we want to test is that the code above
+        // can be executed without throwing any deprecations
+        $this->addToAssertionCount(1);
     }
 
     /**
@@ -334,6 +340,18 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $twig->render('func_string_named_args'));
     }
 
+    /**
+     * @expectedException Twig_Error_Runtime
+     * @expectedExceptionMessage Failed to load Twig template "testFailLoadTemplate.twig", index "abc": cache is corrupted in "testFailLoadTemplate.twig".
+     */
+    public function testFailLoadTemplate()
+    {
+        $template = 'testFailLoadTemplate.twig';
+        $twig = new Twig_Environment(new Twig_Loader_Array(array($template => false)));
+        //$twig->setCache(new CorruptCache());
+        $twig->loadTemplate($template, 'abc');
+    }
+
     protected function getMockLoader($templateName, $templateContent)
     {
         $loader = $this->getMockBuilder('Twig_LoaderInterface')->getMock();
@@ -347,6 +365,27 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
           ->will($this->returnValue($templateName));
 
         return $loader;
+    }
+}
+
+class CorruptCache implements Twig_CacheInterface
+{
+    public function generateKey($name, $className)
+    {
+        return $name.':'.$className;
+    }
+
+    public function write($key, $content)
+    {
+    }
+
+    public function load($key)
+    {
+    }
+
+    public function getTimestamp($key)
+    {
+        time();
     }
 }
 
@@ -412,6 +451,7 @@ class Twig_Tests_EnvironmentTest_Extension extends Twig_Extension implements Twi
         );
     }
 }
+class_alias('Twig_Tests_EnvironmentTest_Extension', 'Twig\Tests\EnvironmentTest\Extension', false);
 
 class Twig_Tests_EnvironmentTest_TokenParser extends Twig_TokenParser
 {
