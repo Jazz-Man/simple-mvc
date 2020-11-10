@@ -83,4 +83,4 @@ jspm_packages
 
 
 /cache/
-/composer.lock
+composer.lock
