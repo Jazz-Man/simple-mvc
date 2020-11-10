@@ -1,16 +1,25 @@
 {
-    "require": {
-        "twig/twig": "~2.0",
-        "nikic/fast-route": "v1.1.0",
-        "gabordemooij/redbean": "v4.3.3",
-        "ezimuel/php-secure-session": "dev-master"
-    },
-	"autoload": {
-		"psr-4": {
-			"Controllers\\": "app/Controllers",
-			"Core\\": "app/Core",
-			"Models\\": "app/Models",
-			"Views\\": "app/Views"
-		}
-	}
+  "require": {
+    "ezimuel/php-secure-session": "dev-master",
+    "gabordemooij/redbean": "v4.3.3",
+    "nikic/fast-route": "v1.1.0",
+    "twig/twig": "~2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Controllers\\": "app/Controllers",
+      "Core\\": "app/Core",
+      "Models\\": "app/Models",
+      "Views\\": "app/Views"
+    }
+  },
+  "config": {
+    "apcu-autoloader": true,
+    "sort-packages": true,
+    "classmap-authoritative": true,
+    "optimize-autoloader": true
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  }
 }
